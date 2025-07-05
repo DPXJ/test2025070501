@@ -13,6 +13,7 @@ import {
   PlusOutlined,
   // @ts-ignore
   SyncOutlined,
+  // @ts-ignore
   FileAddOutlined,
   DownloadOutlined,
   ImportOutlined,
