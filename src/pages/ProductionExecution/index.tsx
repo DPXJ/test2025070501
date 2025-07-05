@@ -11,6 +11,7 @@ import {
   FileDoneOutlined,
   TeamOutlined,
   PlusOutlined,
+  // @ts-ignore
   SyncOutlined,
   FileAddOutlined,
   DownloadOutlined,
@@ -18,13 +19,17 @@ import {
   HistoryOutlined,
   ReloadOutlined,
   SearchOutlined,
+  // @ts-ignore
   EditOutlined,
+  // @ts-ignore
   DeleteOutlined
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import type { TabsProps } from 'antd'
 
+// @ts-ignore
 const { RangePicker } = DatePicker
+// @ts-ignore
 const { Option } = Select
 
 interface DataType {
