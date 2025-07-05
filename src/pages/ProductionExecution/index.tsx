@@ -1,22 +1,6 @@
 import React, { useState } from 'react'
-import { Card, Table, Button, Space, Tag, Input, DatePicker, Select, Tabs, Empty } from 'antd'
+import { Card, Table, Button, Space, Input, DatePicker, Select, Tabs } from 'antd'
 import {
-  AppstoreOutlined,
-  ProfileOutlined,
-  OrderedListOutlined,
-  BarChartOutlined,
-  InboxOutlined,
-  ShopOutlined,
-  FileTextOutlined,
-  FileDoneOutlined,
-  TeamOutlined,
-  PlusOutlined,
-  SyncOutlined,
-  FileAddOutlined,
-  DownloadOutlined,
-  ImportOutlined,
-  HistoryOutlined,
-  ReloadOutlined,
   SearchOutlined,
   EditOutlined,
   DeleteOutlined

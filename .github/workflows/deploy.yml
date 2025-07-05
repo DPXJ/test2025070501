@@ -5,10 +5,16 @@ on:
     branches:
       - master # 当 master 分支有推送时触发
 
+# 设置 GITHUB_TOKEN 的权限
 permissions:
   contents: read
   pages: write
   id-token: write
+
+# 允许一个并发部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -29,6 +35,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          NODE_ENV: production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

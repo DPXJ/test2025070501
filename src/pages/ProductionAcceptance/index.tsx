@@ -1,10 +1,7 @@
 import React from 'react'
-import { Card, Table, Button, Space, Tag, Input, DatePicker, Select, Progress, Statistic } from 'antd'
+import { Card, Table, Button, Space, Tag, Input, Progress, Statistic } from 'antd'
 import { SearchOutlined, CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
-
-const { RangePicker } = DatePicker
-const { Option } = Select
 
 interface AcceptanceRecord {
   id: string
