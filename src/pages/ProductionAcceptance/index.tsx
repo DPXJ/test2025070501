@@ -1,7 +1,10 @@
 import React from 'react'
-import { Card, Table, Button, Space, Tag, Input, Progress, Statistic } from 'antd'
+import { Card, Table, Button, Space, Tag, Input, Progress, Statistic, DatePicker, Select } from 'antd'
 import { SearchOutlined, CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
+
+const { RangePicker } = DatePicker
+const { Option } = Select
 
 interface AcceptanceRecord {
   id: string
@@ -18,7 +21,8 @@ interface AcceptanceRecord {
 }
 
 const ProductionAcceptance: React.FC = () => {
-  const [loading, setLoading] = React.useState(false)
+  // 如果 loading 状态未使用，可以暂时注释掉
+  // const [loading, setLoading] = React.useState(false)
 
   // 模拟数据
   const data: AcceptanceRecord[] = [
@@ -272,7 +276,7 @@ const ProductionAcceptance: React.FC = () => {
           columns={columns}
           dataSource={data}
           rowKey="id"
-          loading={loading}
+          // loading={loading} // 如果 loading 状态未使用，可以暂时注释掉
           pagination={{
             total: data.length,
             pageSize: 10,

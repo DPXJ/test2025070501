@@ -1,9 +1,23 @@
 import React, { useState } from 'react'
-import { Card, Table, Button, Space, Input, DatePicker, Select, Tabs } from 'antd'
+import { Card, Table, Button, Space, Input, DatePicker, Select, Tabs, Empty } from 'antd'
 import {
   SearchOutlined,
   EditOutlined,
-  DeleteOutlined
+  DeleteOutlined,
+  PlusOutlined,
+  HistoryOutlined,
+  ImportOutlined,
+  DownloadOutlined,
+  ReloadOutlined,
+  AppstoreOutlined,
+  ProfileOutlined,
+  OrderedListOutlined,
+  BarChartOutlined,
+  InboxOutlined,
+  ShopOutlined,
+  FileTextOutlined,
+  FileDoneOutlined,
+  TeamOutlined
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import type { TabsProps } from 'antd'
@@ -24,7 +38,8 @@ interface ProductionRecord {
 }
 
 const ProductionExecution: React.FC = () => {
-  const [loading, setLoading] = useState(false)
+  // 如果这些状态和函数未使用，可以暂时注释掉
+  // const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState('board')
   const [selectedProject, setSelectedProject] = useState('1')
 
@@ -246,6 +261,7 @@ const ProductionExecution: React.FC = () => {
     },
   ]
 
+  // 如果这些函数未使用，可以暂时注释掉，或者实现它们的功能
   const handleEdit = (record: ProductionRecord) => {
     console.log('编辑记录:', record)
   }
@@ -405,7 +421,7 @@ const ProductionExecution: React.FC = () => {
             columns={columns}
             dataSource={data}
             rowKey="key"
-            loading={loading}
+            loading={false}
             pagination={{
               total: data.length,
               pageSize: 10,
