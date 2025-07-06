@@ -70,52 +70,52 @@ const ProductionExecution: React.FC = () => {
       title: '计划名称',
       dataIndex: 'planName',
       key: 'planName',
-      width: 160,
+      width: 180,
       fixed: 'left',
     },
-    { title: '品牌', dataIndex: 'brand', key: 'brand', width: 100 },
-    { title: '型号', dataIndex: 'model', key: 'model', width: 100 },
-    { title: '功能参数', dataIndex: 'functionParams', key: 'functionParams', width: 120 },
+    { title: '品牌', dataIndex: 'brand', key: 'brand', width: 70 },
+    { title: '型号', dataIndex: 'model', key: 'model', width: 70 },
+    { title: '功能参数', dataIndex: 'functionParams', key: 'functionParams', width: 90 },
     { 
       title: <span style={{ color: 'red' }}>BOM单数量</span>, 
       dataIndex: 'bomQty', 
       key: 'bomQty', 
-      width: 100,
+      width: 80,
       render: (text) => <span style={{ color: 'red' }}>{text}</span>
     },
     { 
       title: <span style={{ color: 'red' }}>总数量</span>, 
       dataIndex: 'quantity', 
       key: 'quantity', 
-      width: 100,
+      width: 70,
       render: (text) => <span style={{ color: 'red' }}>{text}</span>
     },
-    { title: '单位', dataIndex: 'unit', key: 'unit', width: 80 },
-    { title: '位置', dataIndex: 'location', key: 'location', width: 120 },
-    { title: '已采数量', dataIndex: 'purchasedQty', key: 'purchasedQty', width: 100 },
-    { title: '签收数量', dataIndex: 'receivedQty', key: 'receivedQty', width: 100 },
-    { title: '同步状态', dataIndex: 'syncStatus', key: 'syncStatus', width: 100 },
-    { title: '采购状态', dataIndex: 'purchaseStatus', key: 'purchaseStatus', width: 100 },
-    { title: '计划进场时间', dataIndex: 'planEntryTime', key: 'planEntryTime', width: 140 },
-    { title: '计划实施天数', dataIndex: 'planDays', key: 'planDays', width: 110 },
-    { title: '采购进度', dataIndex: 'purchaseProgress', key: 'purchaseProgress', width: 100 },
-    { title: '采购周期（天）', dataIndex: 'purchaseCycle', key: 'purchaseCycle', width: 110 },
-    { title: '到货进度', dataIndex: 'arrivalProgress', key: 'arrivalProgress', width: 100 },
-    { title: '施工进度（%）', dataIndex: 'constructionProgress', key: 'constructionProgress', width: 120 },
-    { title: '调试进度', dataIndex: 'debugProgress', key: 'debugProgress', width: 100 },
-    { title: '是否采购类', dataIndex: 'isPurchase', key: 'isPurchase', width: 100 },
-    { title: '是否施工类', dataIndex: 'isConstruction', key: 'isConstruction', width: 100 },
-    { title: '是否安装', dataIndex: 'isInstall', key: 'isInstall', width: 100 },
+    { title: '单位', dataIndex: 'unit', key: 'unit', width: 50 },
+    { title: '位置', dataIndex: 'location', key: 'location', width: 90 },
+    { title: '已采数量', dataIndex: 'purchasedQty', key: 'purchasedQty', width: 70 },
+    { title: '签收数量', dataIndex: 'receivedQty', key: 'receivedQty', width: 70 },
+    { title: '同步状态', dataIndex: 'syncStatus', key: 'syncStatus', width: 70 },
+    { title: '采购状态', dataIndex: 'purchaseStatus', key: 'purchaseStatus', width: 80 },
+    { title: '计划进场时间', dataIndex: 'planEntryTime', key: 'planEntryTime', width: 100 },
+    { title: '计划实施天数', dataIndex: 'planDays', key: 'planDays', width: 90 },
+    { title: '采购进度', dataIndex: 'purchaseProgress', key: 'purchaseProgress', width: 70 },
+    { title: '采购周期（天）', dataIndex: 'purchaseCycle', key: 'purchaseCycle', width: 100 },
+    { title: '到货进度', dataIndex: 'arrivalProgress', key: 'arrivalProgress', width: 70 },
+    { title: '施工进度（%）', dataIndex: 'constructionProgress', key: 'constructionProgress', width: 90 },
+    { title: '调试进度', dataIndex: 'debugProgress', key: 'debugProgress', width: 70 },
+    { title: '是否采购类', dataIndex: 'isPurchase', key: 'isPurchase', width: 80 },
+    { title: '是否施工类', dataIndex: 'isConstruction', key: 'isConstruction', width: 80 },
+    { title: '是否安装', dataIndex: 'isInstall', key: 'isInstall', width: 70 },
     {
       title: '操作',
       key: 'action',
-      width: 140,
+      width: 100,
       fixed: 'right',
       render: (_, record) => (
         <Space size="small">
-          <Button type="link" onClick={() => handleEdit(record)}>编辑</Button>
-          <Button type="link">查看</Button>
-          <Button type="link" danger onClick={() => handleDelete(record.key)}>删除</Button>
+          <Button type="link" size="small" onClick={() => handleEdit(record)}>编辑</Button>
+          <Button type="link" size="small">查看</Button>
+          <Button type="link" size="small" danger onClick={() => handleDelete(record.key)}>删除</Button>
         </Space>
       ),
     },
@@ -260,7 +260,7 @@ const ProductionExecution: React.FC = () => {
               </Space>
             </div>
           </Card>
-          <Card>
+          <Card bodyStyle={{ padding: '16px', overflowX: 'auto' }} style={{ width: '100%' }}>
             <Table
               columns={columns}
               dataSource={data}
@@ -273,9 +273,11 @@ const ProductionExecution: React.FC = () => {
                 showTotal: (total, range) =>
                   `第 ${range[0]}-${range[1]} 条/共 ${total} 条`,
               }}
-              scroll={{ x: 2400 }}
+              scroll={{ x: 1800 }}
               className="small-table"
               expandable={{ defaultExpandAllRows: false }}
+              style={{ width: '100%' }}
+              size="middle"
             />
           </Card>
         </>
@@ -356,16 +358,24 @@ const ProductionExecution: React.FC = () => {
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', marginTop: 0, marginBottom: 0 }}>
-          <Select
-            value={selectedProject}
-            onChange={setSelectedProject}
-            options={projectOptions}
-            style={{ width: 200, marginRight: 24 }}
-            showSearch
-            optionFilterProp="label"
-          />
           <Tabs
-            items={tabItems}
+            items={[
+              {
+                key: 'project',
+                label: (
+                  <Select
+                    value={selectedProject}
+                    onChange={setSelectedProject}
+                    options={projectOptions}
+                    style={{ width: 280 }}
+                    showSearch
+                    optionFilterProp="label"
+                  />
+                ),
+                children: null
+              },
+              ...tabItems
+            ]}
             activeKey={activeTab}
             onChange={setActiveTab}
             tabBarStyle={{ marginBottom: 0 }}
