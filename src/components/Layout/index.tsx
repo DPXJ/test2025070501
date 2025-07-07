@@ -7,7 +7,16 @@ import {
   PlayCircleOutlined,
   UserOutlined,
   MenuUnfoldOutlined,
-  MenuFoldOutlined
+  MenuFoldOutlined,
+  FileTextOutlined,
+  FileDoneOutlined,
+  TeamOutlined,
+  InboxOutlined,
+  ShopOutlined,
+  BarChartOutlined,
+  AppstoreOutlined,
+  OrderedListOutlined,
+  GiftOutlined
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 
@@ -48,11 +57,16 @@ const MainLayout: React.FC<LayoutProps> = ({ children }) => {
   }
 
   const getSelectedKeys = () => {
+    // 如果是根路径，返回生产执行的路径
+    if (location.pathname === '/') {
+      return ['/production/execution']
+    }
     return [location.pathname]
   }
 
   const getOpenKeys = () => {
-    if (location.pathname.includes('/production/')) {
+    // 确保在根路径时也展开生产管理菜单
+    if (location.pathname === '/' || location.pathname.includes('/production/')) {
       return ['production']
     }
     return []
@@ -85,6 +99,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children }) => {
           collapsible
           collapsed={collapsed}
           width={200}
+          collapsedWidth={48}
           theme="light"
         >
           <Menu

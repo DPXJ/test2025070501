@@ -23,10 +23,12 @@ import {
   // @ts-ignore
   EditOutlined,
   // @ts-ignore
-  DeleteOutlined
+  DeleteOutlined,
+  GiftOutlined
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import type { TabsProps } from 'antd'
+import ProductionAssembly from './ProductionAssembly'
 
 // @ts-ignore
 const { RangePicker } = DatePicker
@@ -70,7 +72,7 @@ const ProductionExecution: React.FC = () => {
       title: '计划名称',
       dataIndex: 'planName',
       key: 'planName',
-      width: 180,
+      width: 200,
       fixed: 'left',
     },
     { title: '品牌', dataIndex: 'brand', key: 'brand', width: 70 },
@@ -99,7 +101,7 @@ const ProductionExecution: React.FC = () => {
     { title: '计划进场时间', dataIndex: 'planEntryTime', key: 'planEntryTime', width: 100 },
     { title: '计划实施天数', dataIndex: 'planDays', key: 'planDays', width: 90 },
     { title: '采购进度', dataIndex: 'purchaseProgress', key: 'purchaseProgress', width: 70 },
-    { title: '采购周期（天）', dataIndex: 'purchaseCycle', key: 'purchaseCycle', width: 100 },
+    { title: '采购周期（天）', dataIndex: 'purchaseCycle', key: 'purchaseCycle', width: 90 },
     { title: '到货进度', dataIndex: 'arrivalProgress', key: 'arrivalProgress', width: 70 },
     { title: '施工进度（%）', dataIndex: 'constructionProgress', key: 'constructionProgress', width: 90 },
     { title: '调试进度', dataIndex: 'debugProgress', key: 'debugProgress', width: 70 },
@@ -109,7 +111,7 @@ const ProductionExecution: React.FC = () => {
     {
       title: '操作',
       key: 'action',
-      width: 160,
+      width: 140,
       fixed: 'right',
       render: (_, record) => (
         <Space size="small">
@@ -260,25 +262,26 @@ const ProductionExecution: React.FC = () => {
               </Space>
             </div>
           </Card>
-          <Card bodyStyle={{ padding: '16px', overflowX: 'auto' }} style={{ width: '100%', maxWidth: '100%', overflowX: 'auto' }}>
-            <Table
-              columns={columns}
-              dataSource={data}
-              rowKey="key"
-              pagination={{
-                total: data.length,
-                pageSize: 10,
-                showSizeChanger: true,
-                showQuickJumper: true,
-                showTotal: (total, range) =>
-                  `第 ${range[0]}-${range[1]} 条/共 ${total} 条`,
-              }}
-              scroll={{ x: 1150 }}
-              className="small-table"
-              expandable={{ defaultExpandAllRows: false }}
-              size="middle"
-              style={{ width: 1150 }}
-            />
+          <Card bodyStyle={{ padding: 16 }}>
+            <div style={{ width: '100%', overflowX: 'auto' }}>
+              <Table
+                columns={columns}
+                dataSource={data}
+                pagination={{
+                  total: data.length,
+                  pageSize: 10,
+                  showSizeChanger: true,
+                  showQuickJumper: true,
+                  showTotal: (total, range) =>
+                    `第 ${range[0]}-${range[1]} 条/共 ${total} 条`,
+                }}
+                scroll={{ x: true }}
+                className="small-table"
+                expandable={{ defaultExpandAllRows: false }}
+                size="middle"
+                style={{ width: '100%' }}
+              />
+            </div>
           </Card>
         </>
       ),
@@ -329,6 +332,11 @@ const ProductionExecution: React.FC = () => {
       ),
     },
     {
+      key: 'assembly',
+      label: <span><GiftOutlined /> 组装成品管理</span>,
+      children: <ProductionAssembly />,
+    },
+    {
       key: 'docs',
       label: <span><FileDoneOutlined /> 文档</span>,
       children: (
@@ -367,7 +375,7 @@ const ProductionExecution: React.FC = () => {
                     value={selectedProject}
                     onChange={setSelectedProject}
                     options={projectOptions}
-                    style={{ width: 280 }}
+                    style={{ width: 240 }}
                     showSearch
                     optionFilterProp="label"
                   />
